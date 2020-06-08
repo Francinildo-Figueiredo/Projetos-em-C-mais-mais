@@ -53,7 +53,7 @@ int main()
 								conversor.setDecimal( number );
 								
 								cout << "\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n"
-									<< "\n  " << conversor.getDecimal() << " (decimal) ---> " << conversor.converteDecimalBinario()
+									<< "\n  " << conversor.getDecimal() << " (decimal) ---> " << conversor.convertDecimaltoBinary()
 									<< " (binário)\n"
 									<< "\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n" << endl;
 								x = 0;
@@ -86,10 +86,10 @@ int main()
 						if ( cin >> binary )
 						{
 							system("cls");
-							if ( conversor.setBinario( binary ) )
+							if ( conversor.setBinary( binary ) )
 							{
 								cout << "\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n"
-									<< "\n  " << binary << " (binário) --> " << conversor.converteBinarioDecimal()
+									<< "\n  " << binary << " (binário) --> " << conversor.convertBinarytoDecimal()
 									<< " (decimal)\n"
 									<< "\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n" << endl;
 								x = 0;
@@ -123,7 +123,7 @@ int main()
 							conversor.setDecimal( number );				
 							cout << "\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n"
 								<< "\n  " << conversor.getDecimal() << " (decimal) --> "
-								<<  conversor.converteDecimalOctal() << " (Octal)\n"
+								<<  conversor.convertDecimaltoOctal() << " (Octal)\n"
 								<< "\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n" << endl;
 							x = 0;	
 						}
@@ -154,7 +154,7 @@ int main()
 						{
 							cout << "-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n"
 								<< "\n  " << conversor.getOctal() << " (Octal) --> "
-								<<  conversor.converteOctalDecimal() << " (decimal)\n"
+								<<  conversor.convertOctaltoDecimal() << " (decimal)\n"
 								<< "\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n" << endl;
 							x = 0;
 						}
@@ -179,7 +179,7 @@ int main()
 							conversor.setDecimal( number );				
 							cout << "\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n"
 								<< "\n  " << conversor.getDecimal() << " (decimal) --> "
-								<<  conversor.converteDecimalHexa() << " (hexadecimal)\n"
+								<<  conversor.convertDecimaltoHexa() << " (hexadecimal)\n"
 								<< "\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n" << endl;
 							x = 0;	
 						}
@@ -210,7 +210,7 @@ int main()
 						{
 							cout << "-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n"
 								<< "\n  " << conversor.getHexadecimal() << " (hexadecimal) --> "
-								<<  conversor.converteHexaDecimal() << " (decimal)\n"
+								<<  conversor.convertHexatoDecimal() << " (decimal)\n"
 								<< "\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n" << endl;
 							x = 0;
 						}

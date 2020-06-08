@@ -18,7 +18,7 @@ using std::isdigit;
 Conversor::Conversor( unsigned long long d, long long b, string oct, string hd )
 {
 	setDecimal( d );
-	setBinario( b );
+	setBinary( b );
 	setOctal( oct );
 	setHexadecimal( hd );
 }
@@ -37,7 +37,7 @@ bool Conversor::setDecimal( unsigned long long d )
 	return verificador;
 }
 
-bool Conversor::setBinario( long long b )
+bool Conversor::setBinary( long long b )
 {
 	long long aux = b;
 	
@@ -57,9 +57,9 @@ bool Conversor::setBinario( long long b )
 	}
 	
 	if ( aux == 0 && b != 0 )
-		binario = b;
+		binary = b;
 	else
-		binario = 0;
+		binary = 0;
 	
 	return true;
 }
@@ -68,7 +68,7 @@ bool Conversor::setOctal( string oct )
 {
 	bool verificador = true;
 	
-	if ( oct.size() < 23 || oct[0] >= '0' && oct[0] < '2' )
+	if ( oct.size() < 22 || oct[0] >= '0' && oct[0] < '2' )
 	{
 		for ( size_t i = 0; i < oct.size(); i++ )
 		{
@@ -83,7 +83,7 @@ bool Conversor::setOctal( string oct )
 	}
 	else
 	{
-		cout << "O octal digitado não esta na faixa de 0 - 37777777777!\n" << endl;
+		cout << "O octal digitado não esta na faixa de 0 - 777777777777777777777!\n" << endl;
 		verificador = false;
 	}
 	
@@ -115,7 +115,7 @@ bool Conversor::setHexadecimal( string hexd )
 	}
 	else
 	{
-		cout << "O hexadecimal digitado não esta na faixa de 0 - FFFFFFFF!" << endl;
+		cout << "O hexadecimal digitado não esta na faixa de 0 - FFFFFFFFFFFFFFFF!" << endl;
 		return false;
 	}
 }
@@ -125,9 +125,9 @@ unsigned long long Conversor::getDecimal() const
 	return decimal;
 }
 
-long long Conversor::getBinario() const
+long long Conversor::getBinary() const
 {
-	return binario;
+	return binary;
 }
 
 string Conversor::getOctal() const
@@ -140,44 +140,44 @@ string Conversor::getHexadecimal() const
 	return hexadecimal;
 }
 
-long long Conversor::converteDecimalBinario() const
+long long Conversor::convertDecimaltoBinary() const
 {
 	unsigned long long aux = getDecimal();
 	int resto = 0;
 	int i = 0;
-	long long binary = 0;
+	long long bin = 0;
 	
 	if ( aux <= 65535 )
 	{
 		while ( aux != 0 )
 		{
 			resto = aux % 2;
-			binary += resto * pow( 10, i );
+			bin += resto * pow( 10, i );
 			i++;
 			aux /= 2;
 		}
 	}
 	
-	return binary;
+	return bin;
 }
 
-unsigned long long Conversor::converteBinarioDecimal() const
+unsigned long long Conversor::convertBinarytoDecimal() const
 {
-	long long aux = getBinario();
-	unsigned long long numberDecimal = 0;
+	long long aux = getBinary();
+	unsigned long long decimalNumber = 0;
 	int i = 0;
 	
 	while ( aux != 0 )
 	{
-		numberDecimal += ( aux % 10 ) * pow( 2, i );
+		decimalNumber += ( aux % 10 ) * pow( 2, i );
 		i++;
 		aux /= 10; 
 	}
 	
-	return numberDecimal;
+	return decimalNumber;
 }
 
-string Conversor::converteDecimalOctal() const
+string Conversor::convertDecimaltoOctal() const
 {
 	unsigned long long aux = getDecimal();
 	size_t count = 0;
@@ -210,7 +210,7 @@ string Conversor::converteDecimalOctal() const
 	return oct;
 }
 
-unsigned long long Conversor::converteOctalDecimal() const
+unsigned long long Conversor::convertOctaltoDecimal() const
 {
 	string oct = getOctal();
 	int size = getOctal().size();
@@ -234,7 +234,7 @@ unsigned long long Conversor::converteOctalDecimal() const
 	return number;
 }
 
-string Conversor::converteDecimalHexa() const
+string Conversor::convertDecimaltoHexa() const
 {
 	unsigned long long aux = getDecimal();
 	size_t count = 0;
@@ -297,7 +297,7 @@ string Conversor::converteDecimalHexa() const
 	return hexadecimal;
 }
 
-unsigned long long Conversor::converteHexaDecimal() const
+unsigned long long Conversor::convertHexatoDecimal() const
 {
 	string hexad = getHexadecimal();
 	int size = getHexadecimal().size();
