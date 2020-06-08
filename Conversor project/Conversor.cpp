@@ -207,6 +207,8 @@ string Conversor::convertDecimaltoOctal() const
 		oct.append( to_string( numbers[i] ) );
 	}
 	
+	delete [] numbers;
+	
 	return oct;
 }
 
@@ -230,6 +232,8 @@ unsigned long long Conversor::convertOctaltoDecimal() const
 		number += stoi( aux[i] ) * pow( 8, p);
 		p--;
 	}
+	
+	delete [] aux;
 	
 	return number;
 }
@@ -294,6 +298,8 @@ string Conversor::convertDecimaltoHexa() const
 			hexadecimal.append( to_string( numbers[i] ) );
 	}
 	
+	delete [] numbers;
+	
 	return hexadecimal;
 }
 
@@ -356,6 +362,8 @@ unsigned long long Conversor::convertHexatoDecimal() const
 		numbers[i] = stoi( aux[i] );
 	}
 	
+	delete [] aux;
+	
 	unsigned long long number = 0;
 	p = size - 1;
 	
@@ -364,6 +372,8 @@ unsigned long long Conversor::convertHexatoDecimal() const
 		number += numbers[i] * pow(16, p);
 		p--;
 	}
+	
+	delete [] numbers;
 	
 	if ( hexad == "FFFFFFFFFFFFFFFF" )
 		return 18446744073709551615;
